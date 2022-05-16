@@ -336,7 +336,7 @@
                 <img src="images/contact.jpg" alt="Contact image" class="img-fluid h-lg-80 rounded-3">
             </div>
             <div class="col-xl-6">
-                <form action="" class="position-relative px-5">
+                <form action="" class="position-relative px-5" onsubmit="sendEmail(); reset(); return false;">
                     <h2 class="h2">Chat with me!</h2>
                     <textarea type="text" id="message" class="message w-100 p-2 rounded-3" name="message"
                         placeholder="Send me a message..."></textarea>
@@ -348,13 +348,31 @@
                     <label for="email" class="form-label">Email</label>
                     <input type="text" id="email" class="email form-control" name="email" placeholder="Email">
 
-                    <div class="submit my-5 position-absolute end-0 px-5">
-                        <a href="#"><img src="images/button.png" alt="Submit"></a>
+                    <button class="submit my-5 position-absolute end-0 px-5" type="submit">
+                        <img src="images/button.png" alt="Submit">
 
-                    </div>
+                    </button>
 
                 </form>
             </div>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+            <script>
+                function sendEmail() {
+                    Email.send({
+                        SecureToken: "37086abb-d8b5-4157-9ea1-af6ba3abb61e",
+                        
+                        To: 'xwylwuu@gmail.com',
+                        From: document.getElementById('email').value,
+                        Subject: "New Contact Form Enquiry",
+                        Body: "Name: " + document.getElementById("name").value
+                            + "<br> Phone Number: " + document.getElementById('number').value
+                            + "<br> Email: " + document.getElementById('email').value
+                            + "<br> Message: " + document.getElementById('message').value
+                    }).then(
+                        message => alert("Message Sent Successfully")
+                    );
+                }
+            </script>
         </div>
     </main>
     <hr>
@@ -363,13 +381,16 @@
         <div class="social-media align-items-center" id="social-media">
 
             <div class="linkedin text-center">
-                <a href="https://www.linkedin.com/in/wanyi-x-835547204/" target="_blank"><img src="images/Linkedin.png" alt="Linkedin Icon"></a>
+                <a href="https://www.linkedin.com/in/wanyi-x-835547204/" target="_blank"><img src="images/Linkedin.png"
+                        alt="Linkedin Icon"></a>
             </div>
             <div class="instagram text-center">
-                <a href="https://www.instagram.com/lwuuxie/" target="_blank"><img src="images/Instagram.png" alt="Instagram Icon"></a>
+                <a href="https://www.instagram.com/lwuuxie/" target="_blank"><img src="images/Instagram.png"
+                        alt="Instagram Icon"></a>
             </div>
             <div class="dribbble text-center">
-                <a href="https://dribbble.com/lwuu" target="_blank"><img src="images/Dribbble.png" alt="Dribbble Icon"></a>
+                <a href="https://dribbble.com/lwuu" target="_blank"><img src="images/Dribbble.png"
+                        alt="Dribbble Icon"></a>
 
             </div>
         </div>

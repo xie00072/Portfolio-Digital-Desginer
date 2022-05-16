@@ -543,7 +543,12 @@ form {
     margin-bottom: 200px;
 }
 
-
+.submit {
+    background-color: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
 
 
 /* -----------------------------------------------------------
